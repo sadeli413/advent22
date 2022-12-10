@@ -1,0 +1,46 @@
+[package]
+name = "advent22"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "day01"
+path = "src/day01.rs"
+
+[[bin]]
+name = "day02p1"
+path = "src/day02p1.rs"
+
+[[bin]]
+name = "day02p2"
+path = "src/day02p2.rs"
+
+[[bin]]
+name = "day03p1"
+path = "src/day03p1.rs"
+
+[[bin]]
+name = "day03p2"
+path = "src/day03p2.rs"
+
+[[bin]]
+name = "day04p1"
+path = "src/day04p1.rs"
+
+[[bin]]
+name = "day04p2"
+path = "src/day04p2.rs"
+
+[[bin]]
+name = "day05p1"
+path = "src/day05p1.rs"
+
+[[bin]]
+name = "day05p2"
+path = "src/day05p2.rs"
+
+[dependencies]
+anyhow = "1.0.66"
+clap = { version = "4.0.29", features = ["derive"] }
+itertools = "0.10.5"
