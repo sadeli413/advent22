@@ -9,44 +9,24 @@ name = "day01"
 path = "src/day01.rs"
 
 [[bin]]
-name = "day02p1"
-path = "src/day02p1.rs"
+name = "day02"
+path = "src/day02.rs"
 
 [[bin]]
-name = "day02p2"
-path = "src/day02p2.rs"
+name = "day03"
+path = "src/day03.rs"
 
 [[bin]]
-name = "day03p1"
-path = "src/day03p1.rs"
+name = "day04"
+path = "src/day04.rs"
 
 [[bin]]
-name = "day03p2"
-path = "src/day03p2.rs"
+name = "day05"
+path = "src/day05.rs"
 
 [[bin]]
-name = "day04p1"
-path = "src/day04p1.rs"
-
-[[bin]]
-name = "day04p2"
-path = "src/day04p2.rs"
-
-[[bin]]
-name = "day05p1"
-path = "src/day05p1.rs"
-
-[[bin]]
-name = "day05p2"
-path = "src/day05p2.rs"
-
-[[bin]]
-name = "day06p1"
-path = "src/day06p1.rs"
-
-[[bin]]
-name = "day06p2"
-path = "src/day06p2.rs"
+name = "day06"
+path = "src/day06.rs"
 
 [[bin]]
 name = "day07"

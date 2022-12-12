@@ -15,11 +15,8 @@ fn main() {
     calories.sort();
     calories.reverse();
 
-    println!("Largest: {}", calories.first().unwrap_or(&0));
-    println!(
-        "Total top three: {}",
-        calories.iter().take(3).sum::<usize>()
-    );
+    println!("Part 1: {}", calories.first().unwrap_or(&0));
+    println!("Part 2: {}", calories.iter().take(3).sum::<usize>());
 }
 
 #[derive(Parser)]

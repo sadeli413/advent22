@@ -1,22 +1,20 @@
 use clap::Parser;
 use itertools::Itertools;
 
+type PartFn = fn(&mut Stacks, &Instruction, usize) -> Vec<char>;
+
 fn main() {
     let file = std::fs::read_to_string(Args::parse().filename).expect("Could not read file.");
     let input: Vec<&str> = file.split("\n\n").collect();
     let stacks = input[0];
     let instructions = input[1];
-    let mut stacks = Stacks::from(stacks);
 
-    instructions.lines().for_each(|line| {
-        stacks.do_instruction(Instruction::from(line));
-    });
-
-    stacks
-        .stacks
-        .iter()
-        .for_each(|v| print!("{}", v.last().unwrap()));
-    println!();
+    Stacks::from(stacks)
+        .do_instructions(instructions, part1)
+        .display(1);
+    Stacks::from(stacks)
+        .do_instructions(instructions, part2)
+        .display(2);
 }
 
 struct Stacks {
@@ -45,11 +43,34 @@ impl Stacks {
         Stacks { stacks }
     }
 
-    fn do_instruction(&mut self, instruction: Instruction) {
-        let start = self.stacks[instruction.from].len() - instruction.count;
-        let drained: Vec<char> = self.stacks[instruction.from].drain(start..).collect();
-        self.stacks[instruction.to].extend(drained);
+    fn do_instructions(mut self, instructions: &str, part: PartFn) -> Stacks {
+        instructions.lines().for_each(|line| {
+            let instruction = Instruction::from(line);
+            let start = self.stacks[instruction.from].len() - instruction.count;
+            let drained = part(&mut self, &instruction, start);
+            self.stacks[instruction.to].extend(drained);
+        });
+        self
     }
+
+    fn display(&self, part: usize) {
+        print!("Part {}: ", part);
+        self.stacks
+            .iter()
+            .for_each(|v| print!("{}", v.last().unwrap()));
+        println!();
+    }
+}
+
+fn part1(stacks: &mut Stacks, instruction: &Instruction, start: usize) -> Vec<char> {
+    stacks.stacks[instruction.from]
+        .drain(start..)
+        .rev()
+        .collect()
+}
+
+fn part2(stacks: &mut Stacks, instruction: &Instruction, start: usize) -> Vec<char> {
+    stacks.stacks[instruction.from].drain(start..).collect()
 }
 
 #[derive(Debug)]
