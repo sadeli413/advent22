@@ -23,7 +23,7 @@ fn main() {
                 "X" => opponent.checked_sub(1).unwrap_or(2) + 1,
                 "Y" => opponent + 1,
                 "Z" => (opponent + 1) % 3 + 1,
-                _ => panic!("ummmmmmm what"),
+                _ => panic!("at the disco"),
             };
             myself + conversion.get(line[1]).unwrap()
         })

@@ -40,7 +40,18 @@ path = "src/day05p1.rs"
 name = "day05p2"
 path = "src/day05p2.rs"
 
+[[bin]]
+name = "day06p1"
+path = "src/day06p1.rs"
+
+[[bin]]
+name = "day06p2"
+path = "src/day06p2.rs"
+
+[[bin]]
+name = "day07"
+path = "src/day07.rs"
+
 [dependencies]
-anyhow = "1.0.66"
 clap = { version = "4.0.29", features = ["derive"] }
 itertools = "0.10.5"
